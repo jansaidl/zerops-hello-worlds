@@ -71,6 +71,22 @@ zerops:
           port: 80
           path: /status
 
+  - setup: phpnginx83
+    build:
+      base: php@8.3
+      buildCommands:
+        - |
+          cd php
+          composer install --optimize-autoloader --no-dev
+      deploy:
+        - ./php/~/index.php
+        - ./php/~/vendor
+    run:
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
+
   - setup: rust1
     build:
       base: rust@1
