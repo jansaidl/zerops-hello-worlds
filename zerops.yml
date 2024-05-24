@@ -150,7 +150,7 @@ zerops:
       os: alpine
       base: python@latest
       prepareCommands:
-        - apk add postgresql-libs
+        - apk add libpq-dev
         - python3 -m pip install --ignore-installed -r python/requirements.txt
       start: python3 app.py
       healthCheck:
