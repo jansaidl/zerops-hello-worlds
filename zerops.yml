@@ -1,6 +1,7 @@
 zerops:
   - setup: nodejs20
     build:
+      os: alpine
       base: nodejs@20
       prepareCommands:
         - npm install -g typescript
@@ -15,6 +16,8 @@ zerops:
         - ./nodejs/~/node_modules
         - ./nodejs/~/package.json
     run:
+      os: alpine
+      base: nodejs@20
       start: npm run start:prod
       healthCheck:
         httpGet:
@@ -23,6 +26,7 @@ zerops:
 
   - setup: golang1
     build:
+      os: alpine
       base: go@1
       buildCommands:
         - |
@@ -31,6 +35,8 @@ zerops:
       deploy:
         - ./golang/~/golang
     run:
+      os: alpine
+      base: golang@latest
       start: ./golang
       healthCheck:
         httpGet:
@@ -39,6 +45,7 @@ zerops:
 
   - setup: phpapache81
     build:
+      os: alpine
       base: php@8.1
       buildCommands:
         - |
@@ -49,6 +56,8 @@ zerops:
         - ./php/~/.htaccess
         - ./php/~/vendor
     run:
+      os: alpine
+      base: php-apache@8.1
       documentRoot: ./
       healthCheck:
         httpGet:
@@ -57,6 +66,7 @@ zerops:
 
   - setup: phpnginx81
     build:
+      os: alpine
       base: php@8.1
       buildCommands:
         - |
@@ -66,6 +76,8 @@ zerops:
         - ./php/~/index.php
         - ./php/~/vendor
     run:
+      os: alpine
+      base: php-nginx@8.1
       healthCheck:
         httpGet:
           port: 80
@@ -89,7 +101,8 @@ zerops:
 
   - setup: rust1
     build:
-      base: rust@1
+      os: alpine
+      base: rust@latest
       buildCommands:
         - |
           cd rust
@@ -97,6 +110,8 @@ zerops:
       deploy:
         - ./rust/target/release/~/rust
     run:
+      os: alpine
+      base: rust@latest
       start: ./rust
       healthCheck:
         httpGet:
@@ -105,6 +120,7 @@ zerops:
 
   - setup: dotnet60
     build:
+      os: alpine
       base: dotnet@6
       buildCommands:
         - |
@@ -113,6 +129,8 @@ zerops:
       deploy:
         - ./dotnet/publish/~
     run:
+      os: alpine
+      base: dotnet@6
       start: dotnet ./dotnet.dll
       healthCheck:
         httpGet:
@@ -121,11 +139,15 @@ zerops:
 
   - setup: python39
     build:
+      os: alpine
+      base: python@latest
       deploy:
         - python/~app.py
       addToRunPrepare:
         - python/requirements.txt
     run:
+      os: alpine
+      base: python@latest
       prepareCommands:
         - python3 -m pip install --ignore-installed -r python/requirements.txt
       start: python3 app.py
