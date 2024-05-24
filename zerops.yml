@@ -105,6 +105,7 @@ zerops:
       base: rust@latest
       buildCommands:
         - |
+          zsc noop
           cd rust
           cargo build --release
       deploy:
