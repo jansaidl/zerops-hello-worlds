@@ -20,7 +20,7 @@ services:
       - port: 8080
         httpSupport: true
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     minContainers: 1
 
   - hostname: phpnginx81
@@ -32,7 +32,7 @@ services:
       DB_PORT: "5432"
       DB_USER: ${db_user}
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     nginxConfig: |
       server {
           listen 80;
@@ -76,7 +76,7 @@ services:
       DB_PORT: "5432"
       DB_USER: ${db_user}
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     nginxConfig: |
       server {
           listen 80;
@@ -120,7 +120,7 @@ services:
       DB_PORT: "5432"
       DB_USER: ${db_user}
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     minContainers: 1
 
   - hostname: nodejs20
@@ -136,7 +136,7 @@ services:
       - port: 3000
         httpSupport: true
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     minContainers: 1
 
   - hostname: golang1
@@ -151,7 +151,7 @@ services:
       - port: 8080
         httpSupport: true
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     minContainers: 1
 
   - hostname: dotnet60
@@ -167,7 +167,7 @@ services:
       - port: 5000
         httpSupport: true
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     minContainers: 1
 
   - hostname: python39
@@ -182,7 +182,7 @@ services:
       - port: 5000
         httpSupport: true
     enableSubdomainAccess: true
-    buildFromGit: https://github.com/fxck/zerops-hello-worlds
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
     minContainers: 1
     maxContainers: 6
 
