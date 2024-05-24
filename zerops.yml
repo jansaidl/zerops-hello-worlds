@@ -150,9 +150,10 @@ zerops:
       os: alpine
       base: python@latest
       prepareCommands:
-        - apk add libpq-dev
+        - apk add --no-cache --virtual .build-deps libpq-dev gcc musl-dev postgresql-dev
         - python3 -m pip install --ignore-installed -r python/requirements.txt
-      start: python3 app.py
+        - apk --purge del .build-deps
+       start: python3 app.py
       healthCheck:
         httpGet:
           port: 8000
