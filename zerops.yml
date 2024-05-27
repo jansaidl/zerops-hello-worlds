@@ -150,6 +150,7 @@ zerops:
       os: alpine
       base: python@latest
       prepareCommands:
+        - "zsc noop"
         - "apk add --no-cache --virtual .build-deps libpq-dev gcc musl-dev postgresql-dev"
         - "python3 -m pip install --ignore-installed -r python/requirements.txt"
         - "apk --purge del .build-deps"
