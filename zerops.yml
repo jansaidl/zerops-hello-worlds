@@ -85,6 +85,7 @@ zerops:
 
   - setup: phpnginx83
     build:
+      os: alpine
       base: php@8.3
       buildCommands:
         - |
@@ -95,6 +96,8 @@ zerops:
         - ./php/~/vendor
         - ./php/nginx.conf
     run:
+      os: alpine
+      base: php-nginx@latest
       nginx: nginx.conf
       healthCheck:
         httpGet:
