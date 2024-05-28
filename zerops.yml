@@ -93,7 +93,9 @@ zerops:
       deploy:
         - ./php/~/index.php
         - ./php/~/vendor
+        - ./php/nginx.conf
     run:
+      nginx: nginx.conf
       healthCheck:
         httpGet:
           port: 80
