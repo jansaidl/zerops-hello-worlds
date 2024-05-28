@@ -150,8 +150,9 @@ zerops:
       os: alpine
       base: python@latest
       prepareCommands:
-        - "apk add --no-cache libpq-dev gcc musl-dev postgresql-dev"
+        - "apk add --no-cache --virtual .build-deps libpq-dev gcc musl-dev postgresql-dev"
         - "python3 -m pip install --ignore-installed -r python/requirements.txt"
+        - "apk --purge del .build-deps"
       start: python3 app.py
       healthCheck:
         httpGet:
