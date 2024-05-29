@@ -146,7 +146,7 @@ zerops:
   - setup: python311
     build:
       os: alpine
-      base: python@latest
+      base: python@3.11
       deploy:
         - python/~app.py
       addToRunPrepare:
