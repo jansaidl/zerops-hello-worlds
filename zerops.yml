@@ -153,7 +153,7 @@ zerops:
         - python/requirements.txt
     run:
       os: alpine
-      base: python@latest
+      base: python@3.11
       prepareCommands:
         - "apk add --no-cache --virtual .build-deps libpq-dev gcc musl-dev postgresql-dev"
         - "python3 -m pip install --ignore-installed -r python/requirements.txt"
