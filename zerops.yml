@@ -89,6 +89,7 @@ zerops:
       base: php@8.3
       buildCommands:
         - |
+          zsc noop
           cd php
           composer install --optimize-autoloader --no-dev
       deploy:
