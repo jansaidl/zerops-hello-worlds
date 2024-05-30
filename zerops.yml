@@ -105,6 +105,20 @@ zerops:
           port: 80
           path: /status
 
+  - setup: nginx
+    build:
+      os: alpine
+      base: latest
+      buildCommands:
+        - echo noop
+      deploy:
+        - ./nginx/~/index.html
+        - ./nginx/~/nginx.conf
+    run:
+      os: alpine
+      base: nginx@latest
+      nginx: nginx.conf
+
   - setup: rust1
     build:
       os: alpine
