@@ -108,7 +108,7 @@ zerops:
   - setup: nginx
     build:
       os: alpine
-      base: latest
+      base: alpine@latest
       buildCommands:
         - echo noop
       deploy:

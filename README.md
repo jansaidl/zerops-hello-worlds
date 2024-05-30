@@ -186,6 +186,14 @@ services:
     minContainers: 1
     maxContainers: 6
 
+  - hostname: nginx
+    type: nginx@1.22
+    ports:
+      - port: 80
+        httpSupport: true
+    enableSubdomainAccess: true
+    buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
+
   - hostname: adminer
     type: php-apache@8.0+2.4
     buildFromGit: https://github.com/zeropsio/recipe-adminer@main
