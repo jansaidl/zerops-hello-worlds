@@ -117,7 +117,7 @@ zerops:
     run:
       os: alpine
       base: nginx@latest
-      nginx: nginx.conf
+      siteConfigPath: nginx.conf
 
   - setup: rust1
     build:
