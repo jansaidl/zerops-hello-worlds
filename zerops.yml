@@ -55,9 +55,34 @@ zerops:
         - ./php/~/index.php
         - ./php/~/.htaccess
         - ./php/~/vendor
+        - ./php/~/apache.conf.tmpl.tmpl
     run:
       os: alpine
       base: php-apache@8.1
+      siteConfigPath: apache.conf.tmpl
+      documentRoot: ./
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
+
+  - setup: phpapache83
+    build:
+      os: alpine
+      base: php@8.3
+      buildCommands:
+        - |
+          cd php
+          composer install --optimize-autoloader --no-dev
+      deploy:
+        - ./php/~/index.php
+        - ./php/~/.htaccess
+        - ./php/~/vendor
+        - ./php/~/apache.conf.tmpl
+    run:
+      os: alpine
+      base: php-apache@8.3
+      siteConfigPath: apache.conf.tmpl
       documentRoot: ./
       healthCheck:
         httpGet:
@@ -75,9 +100,11 @@ zerops:
       deploy:
         - ./php/~/index.php
         - ./php/~/vendor
+        - ./php/~/nginx_8.1.conf
     run:
       os: alpine
       base: php-nginx@8.1
+      siteConfigPath: nginx_8.1.conf
       healthCheck:
         httpGet:
           port: 80
@@ -94,11 +121,11 @@ zerops:
       deploy:
         - ./php/~/index.php
         - ./php/~/vendor
-        - ./php/nginx.conf
+        - ./php/~/nginx_8.3.conf
     run:
       os: ubuntu
       base: php-nginx@latest
-      nginx: nginx.conf
+      siteConfigPath: nginx_8.3.conf
       healthCheck:
         httpGet:
           port: 80

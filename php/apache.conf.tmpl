@@ -1,0 +1,21 @@
+ServerName localhost
+
+<VirtualHost *:80>
+     ServerName localhost
+     DocumentRoot {{.DocumentRoot}}
+     DirectoryIndex index.htm index.html index.shtml index.php index.phtml
+
+     <Directory {{.DocumentRoot}}>
+         Options -Indexes
+         Options FollowSymLinks
+         AllowOverride All
+         Require all granted
+     </Directory>
+
+     <FilesMatch ".php$">
+         SetHandler "proxy:unix:/run/php-fpm{{.Version}}/php-fpm.sock|fcgi://localhost/"
+      </FilesMatch>
+
+     ErrorLog  "| /usr/bin/logger -thttpd -plocal1.err"
+     CustomLog "| /usr/bin/logger -thttpd -plocal1.notice" combined
+</VirtualHost>
