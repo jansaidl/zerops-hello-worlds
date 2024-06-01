@@ -85,11 +85,10 @@ zerops:
 
   - setup: phpnginx83
     build:
-      os: alpine
+      os: ubuntu
       base: php@8.3
       buildCommands:
         - |
-          zsc noop
           cd php
           composer install --optimize-autoloader --no-dev
       deploy:
@@ -97,7 +96,7 @@ zerops:
         - ./php/~/vendor
         - ./php/nginx.conf
     run:
-      os: alpine
+      os: ubuntu
       base: php-nginx@latest
       nginx: nginx.conf
       healthCheck:
