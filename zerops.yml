@@ -84,11 +84,11 @@ zerops:
       os: ubuntu
       base: php-apache@8.3
       siteConfigPath: apache.conf.tmpl
-#      documentRoot:
-#      healthCheck:
-#        httpGet:
-#          port: 80
-#          path: /status
+      documentRoot:
+      healthCheck:
+        httpGet:
+          port: 80
+          path: /status
 
   - setup: phpnginx81
     build:
