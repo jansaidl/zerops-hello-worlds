@@ -13,7 +13,6 @@ ServerName localhost
      </Directory>
 
      <FilesMatch ".php$">
-         # hello test
          SetHandler "proxy:unix:/run/php-fpm{{.Version}}/php-fpm.sock|fcgi://localhost/"
       </FilesMatch>
 
