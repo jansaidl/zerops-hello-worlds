@@ -142,7 +142,7 @@ zerops:
         - ./nginx/~/index.html
         - ./nginx/~/nginx.conf
     run:
-      os: ubuntu
+      os: alpine
       base: nginx@latest
       siteConfigPath: nginx.conf
 
