@@ -74,6 +74,7 @@ zerops:
         - |
           cd php
           composer install --optimize-autoloader --no-dev
+          ls -laR
       deploy:
         - ./php/~/index.php
         - ./php/~/.htaccess
