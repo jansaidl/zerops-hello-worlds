@@ -84,6 +84,8 @@ zerops:
       base: php-apache@8.3
       siteConfigPath: apache.conf.tmpl
       documentRoot: ./
+      prepareCommands:
+        - ls -laR /var/www
       healthCheck:
         httpGet:
           port: 80
