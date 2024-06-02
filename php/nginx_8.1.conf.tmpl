@@ -1,4 +1,3 @@
-
 server {
           listen 80;
           listen [::]:80;
@@ -6,12 +5,11 @@ server {
           server_name _;
 
           # Be sure that you set up a correct document root!
-          root /var/www;
+          root {{.DocumentRoot}};
 
           location ~ \.php {
               try_files _ @backend;
           }
-
 
           location / {
               # use this for pretty url
@@ -19,7 +17,7 @@ server {
           }
 
           location @backend {
-              fastcgi_pass unix:/var/run/php/php8.3-fpm.sock;
+              fastcgi_pass unix:{{.PhpSocket}};
               fastcgi_split_path_info ^(.+\.php)(/.*)$;
               include fastcgi_params;
 

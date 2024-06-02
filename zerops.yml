@@ -101,11 +101,11 @@ zerops:
       deploy:
         - ./php/~/index.php
         - ./php/~/vendor
-        - ./php/~/nginx_8.1.conf
+        - ./php/~/nginx_8.1.conf.tmpl
     run:
       os: alpine
       base: php-nginx@8.1
-      siteConfigPath: nginx_8.1.conf
+      siteConfigPath: nginx_8.1.conf.tmpl
       healthCheck:
         httpGet:
           port: 80
@@ -122,11 +122,11 @@ zerops:
       deploy:
         - ./php/~/index.php
         - ./php/~/vendor
-        - ./php/~/nginx_8.3.conf
+        - ./php/~/nginx_8.3.conf.tmpl
     run:
       os: ubuntu
       base: php-nginx@latest
-      siteConfigPath: nginx_8.3.conf
+      siteConfigPath: nginx_8.3.conf.tmpl
       healthCheck:
         httpGet:
           port: 80
@@ -140,11 +140,11 @@ zerops:
         - echo noop
       deploy:
         - ./nginx/~/index.html
-        - ./nginx/~/nginx.conf
+        - ./nginx/~/nginx.conf.tmpl
     run:
       os: alpine
       base: nginx@latest
-      siteConfigPath: nginx.conf
+      siteConfigPath: nginx.conf.tmpl
 
   - setup: rust1
     build:
