@@ -55,7 +55,7 @@ zerops:
         - ./php/~/index.php
         - ./php/~/.htaccess
         - ./php/~/vendor
-        - ./php/~/apache.conf.tmpl.tmpl
+        - ./php/~/apache.conf.tmpl
     run:
       os: alpine
       base: php-apache@8.1
