@@ -110,8 +110,8 @@ services:
     enableSubdomainAccess: true
     buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
 
-  - hostname: python39
-    type: python@3.9
+  - hostname: python311
+    type: python@3.11
     envSecrets:
       DB_HOST: db
       DB_NAME: db
