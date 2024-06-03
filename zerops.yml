@@ -197,9 +197,12 @@ zerops:
       os: alpine
       base: python@3.11
       prepareCommands:
+        - "env"
         - "apk add --no-cache --virtual .build-deps libpq-dev gcc musl-dev postgresql-dev"
         - "python3 -m pip install --ignore-installed -r python/requirements.txt"
         - "apk --purge del .build-deps"
+      initCommands:
+        - "env"
       start: python3 app.py
       healthCheck:
         httpGet:
