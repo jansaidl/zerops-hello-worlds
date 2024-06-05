@@ -19,6 +19,9 @@ zerops:
       os: alpine
       base: nodejs@20
       start: npm run start:prod
+      ports:
+        - port: 3000
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 3000
@@ -38,6 +41,9 @@ zerops:
       os: alpine
       base: golang@latest
       start: ./golang
+      ports:
+        - port: 8080
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 8080
@@ -61,6 +67,9 @@ zerops:
       base: php-apache@8.1
       siteConfigPath: apache.conf.tmpl
       documentRoot: ./
+      ports:
+        - port: 80
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 80
@@ -84,7 +93,9 @@ zerops:
       os: ubuntu
       base: php-apache@8.3
       siteConfigPath: apache.conf.tmpl
-      documentRoot:
+      ports:
+        - port: 80
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 80
@@ -106,6 +117,9 @@ zerops:
       os: alpine
       base: php-nginx@8.1
       siteConfigPath: nginx_8.1.conf.tmpl
+      ports:
+        - port: 80
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 80
@@ -127,6 +141,9 @@ zerops:
       os: ubuntu
       base: php-nginx@latest
       siteConfigPath: nginx_8.3.conf.tmpl
+      ports:
+        - port: 80
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 80
@@ -167,6 +184,9 @@ zerops:
       os: alpine
       base: rust@latest
       start: ./rust
+      ports:
+        - port: 8080
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 8080
@@ -186,6 +206,9 @@ zerops:
       os: alpine
       base: dotnet@6
       start: dotnet ./dotnet.dll
+      ports:
+        - port: 5000
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 5000
@@ -210,6 +233,9 @@ zerops:
       initCommands:
         - "env"
       start: python3 app.py
+      ports:
+        - port: 8000
+          httpSupport: true
       healthCheck:
         httpGet:
           port: 8000

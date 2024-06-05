@@ -16,9 +16,6 @@ services:
       DB_PASS: ${db_password}
       DB_PORT: "5432"
       DB_USER: ${db_user}
-    ports:
-      - port: 8080
-        httpSupport: true
     enableSubdomainAccess: true
     buildFromGit: https://github.com/jansaidl/zerops-hello-worlds
 
