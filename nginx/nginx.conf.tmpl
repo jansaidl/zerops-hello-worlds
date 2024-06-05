@@ -7,11 +7,32 @@ server {
 
     location /status {
          add_header 'Content-Disposition' 'inline';
-         return 200 'healthy';
+         return 200 'healthy 80';
     }
 
     location / {
         try_files $uri $uri/ /index.html;
+    }
+
+    access_log syslog:server=unix:/dev/log,facility=local1 default_short;
+    error_log syslog:server=unix:/dev/log,facility=local1;
+}
+
+
+server {
+    listen 8081 default_server;
+    listen [::]:8081 default_server;
+
+    server_name _;
+    root {{.DocumentRoot}};
+
+    location /status {
+         add_header 'Content-Disposition' 'inline';
+         return 200 'healthy 8081';
+    }
+
+    location / {
+        try_files $uri $uri/ /index8081.html;
     }
 
     access_log syslog:server=unix:/dev/log,facility=local1 default_short;

@@ -140,11 +140,17 @@ zerops:
         - echo noop
       deploy:
         - ./nginx/~/index.html
+        - ./nginx/~/index8081.html
         - ./nginx/~/nginx.conf.tmpl
     run:
       os: alpine
       base: nginx@latest
       siteConfigPath: nginx.conf.tmpl
+      ports:
+        - port: 80
+          httpSupport: true
+        - port: 8081
+          httpSupport: true
 
   - setup: rust1
     build:
